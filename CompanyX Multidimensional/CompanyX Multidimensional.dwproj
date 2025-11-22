@@ -6,10 +6,75 @@
     <Name>CompanyX Multidimensional.database</Name>
     <FullPath>CompanyX Multidimensional.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>CompanyXDW.cube</Name>
+      <FullPath>CompanyXDW.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>CompanyXDW.partitions</Name>
+          <FullPath>CompanyXDW.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Date.dim</Name>
+      <FullPath>Date.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Product.dim</Name>
+      <FullPath>Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Geography.dim</Name>
+      <FullPath>Geography.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Sales Territory.dim</Name>
+      <FullPath>Sales Territory.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Promotion.dim</Name>
+      <FullPath>Promotion.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Customer.dim</Name>
+      <FullPath>Customer.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>CompanyXDW.ds</Name>
+      <FullPath>CompanyXDW.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>CompanyXDW.dsv</Name>
+      <FullPath>CompanyXDW.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>CompanyXDW</Id>
+            <Name>CompanyXDW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=DESKTOP-18L9IFI\MSSQLSERVER1;Persist Security Info=True;Password=;User ID=;Initial Catalog=CompanyXDW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>CompanyXDW</Id>
+            <Name>CompanyXDW</Name>
+            <Value xsi:type="xsd:int">1</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>
