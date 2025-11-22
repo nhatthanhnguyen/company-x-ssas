@@ -1,4 +1,4 @@
-﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c435a73b-395a-46a6-b611-a264f769b20e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="56a62244-afc1-40d9-b43d-c33b1c9ec439" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>CompanyXDW</ID>
   <Name>CompanyXDW</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -619,7 +619,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-                  <xs:element name="CalendarQuarterDesc" msdata:ReadOnly="true" msprop:Description="" msprop:design-time-name="b2db09f0-0fd8-45d2-b5e1-503f04679a2e" msprop:IsLogical="True" msprop:DbColumnName="CalendarQuarterDesc" msprop:ComputedColumnExpression="'Q' + CONVERT(CHAR (1), CalendarQuarter) +' '+ 'CY ' +  &#xD;&#xA;CONVERT(CHAR (4), CalendarYear)" minOccurs="0">
+                  <xs:element name="CalendarQuarterDesc" msdata:ReadOnly="true" msprop:DbColumnName="CalendarQuarterDesc" msprop:IsLogical="True" msprop:design-time-name="b2db09f0-0fd8-45d2-b5e1-503f04679a2e" msprop:Description="" msprop:ComputedColumnExpression="'Q' + CONVERT(CHAR (1), CalendarQuarter) +' '+ 'CY ' +  &#xD;&#xA;CONVERT(CHAR (4), CalendarYear)" minOccurs="0">
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:maxLength value="10" />
@@ -849,6 +849,20 @@
                   <xs:element name="EndDate" msprop:FriendlyName="EndDate" msprop:DbColumnName="EndDate" msprop:design-time-name="bc718e90-b7e9-4419-aa47-b042fc1a895b" type="xs:dateTime" minOccurs="0" />
                   <xs:element name="MinQty" msprop:FriendlyName="MinQty" msprop:DbColumnName="MinQty" msprop:design-time-name="bffd8a84-36b7-4f7a-9ca9-f50d40d056bb" type="xs:int" minOccurs="0" />
                   <xs:element name="MaxQty" msprop:FriendlyName="MaxQty" msprop:DbColumnName="MaxQty" msprop:design-time-name="cd33b381-6952-4f4b-ac69-3ed0a1c46603" type="xs:int" minOccurs="0" />
+                  <xs:element name="SimpleEndDate" msdata:ReadOnly="true" msprop:DbColumnName="SimpleEndDate" msprop:IsLogical="True" msprop:ComputedColumnExpression="DATENAME(mm, EndDate) + ' ' +&#xD;&#xA;DATENAME(dd, EndDate) + ', ' +&#xD;&#xA;DATENAME(yy, EndDate)" msprop:design-time-name="10f432d5-9c3a-43ed-b289-b2635eeef44a" msprop:Description="" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="93" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SimpleStartDate" msdata:ReadOnly="true" msprop:Description="" msprop:design-time-name="07039675-b5b5-4e06-8ef8-b072b540b1ff" msprop:IsLogical="True" msprop:DbColumnName="SimpleStartDate" msprop:ComputedColumnExpression="DATENAME(mm, StartDate) + ' ' +&#xD;&#xA;DATENAME(dd, StartDate) + ', ' +&#xD;&#xA;DATENAME(yy, StartDate)" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="93" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -969,33 +983,33 @@
           <xs:field xpath="SalesOrderNumber" />
           <xs:field xpath="SalesOrderLineNumber" />
         </xs:unique>
-        <xs:keyref name="FK_FactInternetSales_DimDate2" refer="dbo_DimDate_Constraint1">
+        <xs:keyref name="FK_FactInternetSales_DimCustomer" refer="Constraint1">
           <xs:selector xpath=".//dbo_FactInternetSales" />
-          <xs:field xpath="ShipDateKey" />
-        </xs:keyref>
-        <xs:keyref name="FK_FactInternetSales_DimDate" refer="dbo_DimDate_Constraint1">
-          <xs:selector xpath=".//dbo_FactInternetSales" />
-          <xs:field xpath="OrderDateKey" />
-        </xs:keyref>
-        <xs:keyref name="FK_FactInternetSales_DimDate1" refer="dbo_DimDate_Constraint1">
-          <xs:selector xpath=".//dbo_FactInternetSales" />
-          <xs:field xpath="DueDateKey" />
-        </xs:keyref>
-        <xs:keyref name="FK_FactInternetSales_DimProduct" refer="dbo_DimProduct_Constraint1">
-          <xs:selector xpath=".//dbo_FactInternetSales" />
-          <xs:field xpath="ProductKey" />
-        </xs:keyref>
-        <xs:keyref name="FK_FactInternetSales_DimSalesTerritory" refer="dbo_DimSalesTerritory_Constraint1">
-          <xs:selector xpath=".//dbo_FactInternetSales" />
-          <xs:field xpath="SalesTerritoryKey" />
+          <xs:field xpath="CustomerKey" />
         </xs:keyref>
         <xs:keyref name="FK_FactInternetSales_DimPromotion" refer="dbo_DimPromotion_Constraint1">
           <xs:selector xpath=".//dbo_FactInternetSales" />
           <xs:field xpath="PromotionKey" />
         </xs:keyref>
-        <xs:keyref name="FK_FactInternetSales_DimCustomer" refer="Constraint1">
+        <xs:keyref name="FK_FactInternetSales_DimSalesTerritory" refer="dbo_DimSalesTerritory_Constraint1">
           <xs:selector xpath=".//dbo_FactInternetSales" />
-          <xs:field xpath="CustomerKey" />
+          <xs:field xpath="SalesTerritoryKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactInternetSales_DimProduct" refer="dbo_DimProduct_Constraint1">
+          <xs:selector xpath=".//dbo_FactInternetSales" />
+          <xs:field xpath="ProductKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactInternetSales_DimDate1" refer="dbo_DimDate_Constraint1">
+          <xs:selector xpath=".//dbo_FactInternetSales" />
+          <xs:field xpath="DueDateKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactInternetSales_DimDate" refer="dbo_DimDate_Constraint1">
+          <xs:selector xpath=".//dbo_FactInternetSales" />
+          <xs:field xpath="OrderDateKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactInternetSales_DimDate2" refer="dbo_DimDate_Constraint1">
+          <xs:selector xpath=".//dbo_FactInternetSales" />
+          <xs:field xpath="ShipDateKey" />
         </xs:keyref>
         <xs:keyref name="FK_DimProductSubcategory_DimProductCategory" refer="dbo_DimProductCategory_Constraint1">
           <xs:selector xpath=".//dbo_DimProductSubcategory" />
